@@ -20,6 +20,5 @@ public class OrangehrmDemoTest {
 		
 		//Shutdown the driver
 		driver.close();
-		driver.quit();
 	}		
 }

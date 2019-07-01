@@ -1,6 +1,10 @@
 package com.testAutomationSuite;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -37,7 +41,20 @@ public class CheeseSearchTest
 		action.moveToElement(searchButton);
 		action.click();
 		action.perform();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
+		
+		//Get the number of results string
+		String results = "";
+		results = driver.findElement(By.cssSelector("#resultStats")).getText();
+		
+		//Extract number from string 
+		Matcher matcher = Pattern.compile("\\d+").matcher(results);
+		matcher.find();
+		int i = Integer.valueOf(matcher.group());
+		System.out.println(i);
+		
+		//Assert 
+		assertEquals(i, 777);
 		
 		//Shutdown the driver
 		driver.close();
