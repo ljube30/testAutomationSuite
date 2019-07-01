@@ -21,6 +21,5 @@ public class WeDoQaTest {
 		
 		//Shutdown the driver
 		driver.close();
-		driver.quit();
 	}		
 }
