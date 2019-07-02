@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -39,12 +40,25 @@ public class WeDoQaTest {
 		//Click on first result that will lead to wedoqa.com
 		driver.findElement(By.partialLinkText("https://www.wedoqa.com/")).click();
 		Thread.sleep(100);
+		//Initialize JS Executor
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
+		 // This  will scroll down the page by  1000 pixel vertical		
+        js.executeScript("window.scrollBy(0,1000)");
+        
 		//Move to Testimonials / References section
+        /*
+         * 
+         * Stuck at swiping the cards, code below only tries to click on them 
+         * 
+         * */
 		WebElement testimonials = driver.findElement(By.cssSelector("#testimonials > div.section-header > div > div > div > h3"));
 		action.moveToElement(testimonials);
 		action.click();
 		action.perform();
+		
+		
+		
 		//Shutdown the driver
 		driver.close();
 	}		

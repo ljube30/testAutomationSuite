@@ -48,6 +48,9 @@ public class CheeseSearchTest
 		results = driver.findElement(By.cssSelector("#resultStats")).getText();
 		
 		//Extract number from string 
+		/*
+		 * Logic for extracting number from string isn't the best here 
+		 * */
 		Matcher matcher = Pattern.compile("\\d+").matcher(results);
 		matcher.find();
 		int i = Integer.valueOf(matcher.group());

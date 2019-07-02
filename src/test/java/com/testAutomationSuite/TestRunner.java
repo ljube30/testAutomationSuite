@@ -30,7 +30,7 @@ public class TestRunner {
 			  Result result2 = JUnitCore.runClasses(CheeseSearchTest.class);
 				
 		      for (Failure failure : result2.getFailures()) {
-		         System.err.println("There is too much cheese on the internet");
+		         System.out.println("There is too much cheese on the internet");
 		      }
 				
 		      System.out.println(result2.wasSuccessful());
