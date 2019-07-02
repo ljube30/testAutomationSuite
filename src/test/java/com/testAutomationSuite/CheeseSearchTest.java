@@ -49,15 +49,16 @@ public class CheeseSearchTest
 		
 		//Extract number from string 
 		/*
-		 * Logic for extracting number from string isn't the best here 
+		 * Ex. results = Oko 1.010.000.000 rezultata (0,28 sekundi) 
+		 * so we need to get only the number 1.010.000.000
+		 * My solution is to split the results string on spaces into the string array 
+		 * and then access the array at index 1 because 0:[Oko] 1:[1.010.000.00] 2:[rezultata]...
 		 * */
-		Matcher matcher = Pattern.compile("\\d+").matcher(results);
-		matcher.find();
-		int i = Integer.valueOf(matcher.group());
-		System.out.println(i);
+		String[] arr = results.split(" ");
+		System.out.println(arr[1]);
 		
 		//Assert 
-		assertEquals(i, 777);
+		assertEquals(arr[1], "777");
 		
 		//Shutdown the driver
 		driver.close();
