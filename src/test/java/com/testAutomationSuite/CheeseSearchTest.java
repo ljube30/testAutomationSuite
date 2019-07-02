@@ -46,6 +46,7 @@ public class CheeseSearchTest
 		//Get the number of results string
 		String results = "";
 		results = driver.findElement(By.cssSelector("#resultStats")).getText();
+		Thread.sleep(1000);
 		
 		//Extract number from string 
 		/*
@@ -55,12 +56,14 @@ public class CheeseSearchTest
 		 * and then access the array at index 1 because 0:[Oko] 1:[1.010.000.00] 2:[rezultata]...
 		 * */
 		String[] arr = results.split(" ");
-		System.out.println(arr[1]);
-		
-		//Assert 
-		assertEquals(arr[1], "777");
-		
+		//Remove the dots from number (Leave only digits)
+		arr[1] = arr[1].replaceAll("[^0-9]", "");
 		//Shutdown the driver
 		driver.close();
+		
+		//Assert
+		assertEquals("777", arr[1]);
+		
+		
 	}
 }
