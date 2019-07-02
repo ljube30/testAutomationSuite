@@ -37,11 +37,11 @@ public class CheeseSearchTest
 		Thread.sleep(1000);
 		
 		//Click on search
-		WebElement searchButton = driver.findElement(By.cssSelector("#tsf > div:nth-child(2) > div > div.FPdoLc.VlcLAe > center > input.gNO89b"));
+		WebElement searchButton = driver.findElement(By.cssSelector("div.VlcLAe:nth-child(5) > center:nth-child(2) > input:nth-child(1)"));
 		action.moveToElement(searchButton);
 		action.click();
 		action.perform();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		//Get the number of results string
 		String results = "";
